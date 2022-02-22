@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import TodoList from "./TodoList";
+import EmployeeList from "./EmployeeList";
 
 const LOCAL_STORAGE_KEY = "todoApp.todos"
 function App() {
@@ -41,12 +42,13 @@ function App() {
   }
 
   function HandleClearButton() {
-    const notCompletedTodos = todos.filter(todo=>todo.complete === false)
+    const notCompletedTodos = todos.filter(todo => todo.complete === false)
     setTodos(notCompletedTodos);
   }
 
   return (
     <>
+      <EmployeeList />
       <TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={RemoveTodo} />
       <input type="text" value={textValue} onChange={(newValue) => { setTextValue(newValue.target.value) }} />
       <button onClick={HandleNewTodo}>Add Todo</button>
